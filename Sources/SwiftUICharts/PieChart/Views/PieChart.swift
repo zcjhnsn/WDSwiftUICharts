@@ -65,11 +65,15 @@ public struct PieChart<ChartData>: View where ChartData: PieChartData {
                 }
             }
         }
-        .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-            self.startAnimation = true
+        .if(chartData.chartStyle.globalAnimation != nil) {
+            $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                self.startAnimation = true
+            }
         }
-        .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-            self.startAnimation = false
+        .if(chartData.chartStyle.globalAnimation != nil) {
+            $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                self.startAnimation = false
+            }
         }
     }
 }

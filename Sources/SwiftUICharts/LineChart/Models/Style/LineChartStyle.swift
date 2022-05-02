@@ -57,7 +57,7 @@ public struct LineChartStyle: CTLineChartStyle {
     public var baseline: Baseline
     public var topLine: Topline
     
-    public var globalAnimation: Animation
+    public var globalAnimation: Animation?
     
     /// Model for controlling the overall aesthetic of the chart.
     /// - Parameters:

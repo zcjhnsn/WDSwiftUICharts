@@ -24,7 +24,7 @@ public struct DoughnutChartStyle: CTDoughnutChartStyle {
     public var infoBoxBorderColour: Color
     public var infoBoxBorderStyle: StrokeStyle
     
-    public var globalAnimation: Animation
+    public var globalAnimation: Animation?
     
     public var strokeWidth: CGFloat
     

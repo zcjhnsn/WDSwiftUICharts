@@ -58,11 +58,15 @@ internal struct LineChartColourSubView<CD, DS>: View where CD: CTLineChartDataPr
             .background(Color(.gray).opacity(0.000000001))
             .if(chartData.viewData.hasXAxisLabels) { $0.xAxisBorder(chartData: chartData) }
             .if(chartData.viewData.hasYAxisLabels) { $0.yAxisBorder(chartData: chartData) }
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
     }
 }
@@ -132,11 +136,15 @@ internal struct LineChartColoursSubView<CD, DS>: View where CD: CTLineChartDataP
             .background(Color(.gray).opacity(0.000000001))
             .if(chartData.viewData.hasXAxisLabels) { $0.xAxisBorder(chartData: chartData) }
             .if(chartData.viewData.hasYAxisLabels) { $0.yAxisBorder(chartData: chartData) }
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
     }
 }
@@ -205,11 +213,15 @@ internal struct LineChartStopsSubView<CD, DS>: View where CD: CTLineChartDataPro
             .background(Color(.gray).opacity(0.000000001))
             .if(chartData.viewData.hasXAxisLabels) { $0.xAxisBorder(chartData: chartData) }
             .if(chartData.viewData.hasYAxisLabels) { $0.yAxisBorder(chartData: chartData) }
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
     }
 }

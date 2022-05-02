@@ -46,11 +46,15 @@ internal struct FilledTopLine<T>: ViewModifier where T: LineChartData {
                               ignoreZero: chartData.dataSets.style.ignoreZero)
                         .scale(y: startAnimation ? 1 : 0, anchor: .bottom)
                         .stroke(colour, style: strokeStyle)
-                        .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                            self.startAnimation = true
+                        .if(chartData.chartStyle.globalAnimation != nil) {
+                            $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                                self.startAnimation = true
+                            }
                         }
-                        .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                            self.startAnimation = false
+                        .if(chartData.chartStyle.globalAnimation != nil) {
+                            $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                                self.startAnimation = false
+                            }
                         }
                 } else if lineColour.colourType == .gradientColour,
                           let colours = lineColour.colours,
@@ -68,11 +72,15 @@ internal struct FilledTopLine<T>: ViewModifier where T: LineChartData {
                                                startPoint: startPoint,
                                                endPoint: endPoint),
                                 style: strokeStyle)
-                        .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                            self.startAnimation = true
+                        .if(chartData.chartStyle.globalAnimation != nil) {
+                            $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                                self.startAnimation = true
+                            }
                         }
-                        .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                            self.startAnimation = false
+                        .if(chartData.chartStyle.globalAnimation != nil) {
+                            $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                                self.startAnimation = false
+                            }
                         }
                 } else if lineColour.colourType == .gradientStops,
                           let stops = lineColour.stops,
@@ -91,11 +99,15 @@ internal struct FilledTopLine<T>: ViewModifier where T: LineChartData {
                                                startPoint: startPoint,
                                                endPoint: endPoint),
                                 style: strokeStyle)
-                        .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                            self.startAnimation = true
+                        .if(chartData.chartStyle.globalAnimation != nil) {
+                            $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                                self.startAnimation = true
+                            }
                         }
-                        .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                            self.startAnimation = false
+                        .if(chartData.chartStyle.globalAnimation != nil) {
+                            $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                                self.startAnimation = false
+                            }
                         }
                 }
                 content

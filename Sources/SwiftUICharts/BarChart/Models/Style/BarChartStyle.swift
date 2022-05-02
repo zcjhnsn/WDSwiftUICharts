@@ -59,7 +59,7 @@ public struct BarChartStyle: CTBarChartStyle {
     public var baseline: Baseline
     public var topLine: Topline
     
-    public var globalAnimation: Animation
+    public var globalAnimation: Animation?
     
     /// Model for controlling the overall aesthetic of the Bar Chart.
     ///
@@ -148,7 +148,7 @@ public struct BarChartStyle: CTBarChartStyle {
         baseline: Baseline = .minimumValue,
         topLine: Topline = .maximumValue,
         
-        globalAnimation: Animation = Animation.linear(duration: 1)
+        globalAnimation: Animation? = Animation.linear(duration: 1)
     ) {
         self.infoBoxPlacement = infoBoxPlacement
         self.infoBoxContentAlignment = infoBoxContentAlignment

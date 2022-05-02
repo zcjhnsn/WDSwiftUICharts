@@ -209,11 +209,15 @@ internal struct ColourExtraLineView<ChartData>: View where ChartData: CTLineBarC
                 $0.scale(y: startAnimation ? 1 : 0, anchor: .bottom)
                     .stroke(colour, style: stroke.strokeToStrokeStyle())
             })
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
             .zIndex(1)
     }
@@ -264,11 +268,15 @@ internal struct ColoursExtraLineView<ChartData>: View where ChartData: CTLineBar
                             style: stroke.strokeToStrokeStyle())
             })
             
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
     }
 }
@@ -317,11 +325,15 @@ internal struct StopsExtraLineView<ChartData>: View where ChartData: CTLineBarCh
                                            endPoint: endPoint),
                             style: stroke.strokeToStrokeStyle())
             })
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
             .zIndex(1)
     }
@@ -420,11 +432,15 @@ internal struct FilledDataPointExtraLineView<ChartData>: View where ChartData: C
                         .scale(y: startAnimation ? 1 : 0, anchor: .bottom)
                         .fill(dataPoint.pointColour?.fill ?? chartData.extraLineData.style.pointStyle.fillColour)
                 })
-                .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                    self.startAnimation = true
+                .if(chartData.chartStyle.globalAnimation != nil) {
+                    $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                        self.startAnimation = true
+                    }
                 }
-                .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                    self.startAnimation = false
+                .if(chartData.chartStyle.globalAnimation != nil) {
+                    $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                        self.startAnimation = false
+                    }
                 }
         case .bar:
             PointBarSpcing(value: dataPoint.value,
@@ -444,11 +460,15 @@ internal struct FilledDataPointExtraLineView<ChartData>: View where ChartData: C
                         .scale(y: startAnimation ? 1 : 0, anchor: .bottom)
                         .fill(dataPoint.pointColour?.fill ?? chartData.extraLineData.style.pointStyle.fillColour)
                 })
-                .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                    self.startAnimation = true
+                .if(chartData.chartStyle.globalAnimation != nil) {
+                    $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                        self.startAnimation = true
+                    }
                 }
-                .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                    self.startAnimation = false
+                .if(chartData.chartStyle.globalAnimation != nil) {
+                    $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                        self.startAnimation = false
+                    }
                 }
         }
     }
@@ -494,11 +514,15 @@ internal struct OutLineDataPointExtraLineView<ChartData>: View where ChartData: 
                         .stroke(dataPoint.pointColour?.border ?? chartData.extraLineData.style.pointStyle.borderColour,
                                 lineWidth: chartData.extraLineData.style.pointStyle.lineWidth)
                 })
-                .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                    self.startAnimation = true
+                .if(chartData.chartStyle.globalAnimation != nil) {
+                    $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                        self.startAnimation = true
+                    }
                 }
-                .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                    self.startAnimation = false
+                .if(chartData.chartStyle.globalAnimation != nil) {
+                    $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                        self.startAnimation = false
+                    }
                 }
         case .bar:
             PointBarSpcing(value: dataPoint.value,
@@ -518,11 +542,15 @@ internal struct OutLineDataPointExtraLineView<ChartData>: View where ChartData: 
                         .stroke(dataPoint.pointColour?.border ?? chartData.extraLineData.style.pointStyle.borderColour,
                                 lineWidth: chartData.extraLineData.style.pointStyle.lineWidth)
                 })
-                .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                    self.startAnimation = true
+                .if(chartData.chartStyle.globalAnimation != nil) {
+                    $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                        self.startAnimation = true
+                    }
                 }
-                .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                    self.startAnimation = false
+                .if(chartData.chartStyle.globalAnimation != nil) {
+                    $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                        self.startAnimation = false
+                    }
                 }
         }
     }

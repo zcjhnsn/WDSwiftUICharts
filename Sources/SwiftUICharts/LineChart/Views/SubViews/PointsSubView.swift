@@ -16,14 +16,14 @@ internal struct PointsSubView<DS>: View where DS: CTLineChartDataSet,
     private let dataSets: DS
     private let minValue: Double
     private let range: Double
-    private let animation: Animation
+    private let animation: Animation?
     private let isFilled: Bool
     
     internal init(
         dataSets: DS,
         minValue: Double,
         range: Double,
-        animation: Animation,
+        animation: Animation?,
         isFilled: Bool
     ) {
         self.dataSets = dataSets
@@ -56,11 +56,15 @@ internal struct PointsSubView<DS>: View where DS: CTLineChartDataSet,
                             .fill(dataSets.dataPoints[index].pointColour?.fill ?? dataSets.pointStyle.fillColour)
                     })
             }
-            .animateOnAppear(using: animation) {
-                self.startAnimation = true
+            .if(animation != nil) {
+                $0.animateOnAppear(using: animation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: animation) {
-                self.startAnimation = false
+            .if(animation != nil) {
+                $0.animateOnDisappear(using: animation!) {
+                    self.startAnimation = false
+                }
             }
         case .outline:
             ForEach(dataSets.dataPoints.indices, id: \.self) { index in
@@ -82,11 +86,15 @@ internal struct PointsSubView<DS>: View where DS: CTLineChartDataSet,
                                     lineWidth: dataSets.pointStyle.lineWidth)
                     })
             }
-            .animateOnAppear(using: animation) {
-                self.startAnimation = true
+            .if(animation != nil) {
+                $0.animateOnAppear(using: animation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: animation) {
-                self.startAnimation = false
+            .if(animation != nil) {
+                $0.animateOnDisappear(using: animation!) {
+                    self.startAnimation = false
+                }
             }
         case .filledOutLine:
             ForEach(dataSets.dataPoints.indices, id: \.self) { index in
@@ -118,11 +126,15 @@ internal struct PointsSubView<DS>: View where DS: CTLineChartDataSet,
                                     .foregroundColor(dataSets.dataPoints[index].pointColour?.fill ?? dataSets.pointStyle.fillColour)
                     )
             }
-            .animateOnAppear(using: animation) {
-                self.startAnimation = true
+            .if(animation != nil) {
+                $0.animateOnAppear(using: animation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: animation) {
-                self.startAnimation = false
+            .if(animation != nil) {
+                $0.animateOnDisappear(using: animation!) {
+                    self.startAnimation = false
+                }
             }
         }
     }

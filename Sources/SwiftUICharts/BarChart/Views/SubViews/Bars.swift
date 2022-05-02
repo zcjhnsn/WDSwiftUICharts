@@ -43,11 +43,15 @@ internal struct ColourBar<CD: CTBarChartDataProtocol & GetDataProtocol,
             .scaleEffect(x: chartData.barStyle.barWidth, anchor: .center)
             .background(Color(.gray).opacity(0.000000001))
             .animation(.default, value: chartData.dataSets)
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
             .accessibilityValue(dataPoint.getCellAccessibilityValue(specifier: chartData.infoView.touchSpecifier,
                                                                     formatter: chartData.infoView.touchFormatter))
@@ -94,11 +98,15 @@ internal struct GradientColoursBar<CD: CTBarChartDataProtocol & GetDataProtocol,
             .scaleEffect(x: chartData.barStyle.barWidth, anchor: .center)
             .animation(.default, value: chartData.dataSets)
             .background(Color(.gray).opacity(0.000000001))
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
             .accessibilityValue(dataPoint.getCellAccessibilityValue(specifier: chartData.infoView.touchSpecifier,
                                                                     formatter: chartData.infoView.touchFormatter))
@@ -146,11 +154,15 @@ internal struct GradientStopsBar<CD: CTBarChartDataProtocol & GetDataProtocol,
             .scaleEffect(x: chartData.barStyle.barWidth, anchor: .center)
             .animation(.default, value: chartData.dataSets)
             .background(Color(.gray).opacity(0.000000001))
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
             .accessibilityValue(dataPoint.getCellAccessibilityValue(specifier: chartData.infoView.touchSpecifier,
                                                                     formatter: chartData.infoView.touchFormatter))
@@ -364,11 +376,15 @@ internal struct RangedBarChartColourCell<CD:RangedBarChartData>: View {
                       y: chartData.getBarPositionX(dataPoint: dataPoint, height: barSize.height))
             .animation(.default, value: chartData.dataSets)
             .background(Color(.gray).opacity(0.000000001))
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
             .accessibilityValue(dataPoint.getCellAccessibilityValue(specifier: chartData.infoView.touchSpecifier,
                                                                     formatter: chartData.infoView.touchFormatter))
@@ -414,11 +430,15 @@ internal struct RangedBarChartColoursCell<CD:RangedBarChartData>: View {
                       y: chartData.getBarPositionX(dataPoint: dataPoint, height: barSize.height))
             .animation(.default, value: chartData.dataSets)
             .background(Color(.gray).opacity(0.000000001))
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
             .accessibilityValue(dataPoint.getCellAccessibilityValue(specifier: chartData.infoView.touchSpecifier,
                                                                     formatter: chartData.infoView.touchFormatter))
@@ -464,11 +484,15 @@ internal struct RangedBarChartStopsCell<CD:RangedBarChartData>: View {
                       y: chartData.getBarPositionX(dataPoint: dataPoint, height: barSize.height))
             .animation(.default, value: chartData.dataSets)
             .background(Color(.gray).opacity(0.000000001))
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
             .accessibilityValue(dataPoint.getCellAccessibilityValue(specifier: chartData.infoView.touchSpecifier,
                                                                     formatter: chartData.infoView.touchFormatter))
@@ -511,11 +535,15 @@ internal struct HorizontalColourBar<CD: CTBarChartDataProtocol & GetDataProtocol
             .scaleEffect(y: chartData.barStyle.barWidth, anchor: .center)
             .animation(.default, value: chartData.dataSets)
             .background(Color(.gray).opacity(0.000000001))
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
             .accessibilityValue(dataPoint.getCellAccessibilityValue(specifier: chartData.infoView.touchSpecifier,
                                                                     formatter: chartData.infoView.touchFormatter))
@@ -563,11 +591,15 @@ internal struct HorizontalGradientColoursBar<CD: CTBarChartDataProtocol & GetDat
             .scaleEffect(y: chartData.barStyle.barWidth, anchor: .center)
             .animation(.default, value: chartData.dataSets)
             .background(Color(.gray).opacity(0.000000001))
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
             .accessibilityValue(dataPoint.getCellAccessibilityValue(specifier: chartData.infoView.touchSpecifier,
                                                                     formatter: chartData.infoView.touchFormatter))
@@ -615,11 +647,15 @@ internal struct HorizontalGradientStopsBar<CD: CTBarChartDataProtocol & GetDataP
             .scaleEffect(y: chartData.barStyle.barWidth, anchor: .center)
             .animation(.default, value: chartData.dataSets)
             .background(Color(.gray).opacity(0.000000001))
-            .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = true
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = true
+                }
             }
-            .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                self.startAnimation = false
+            .if(chartData.chartStyle.globalAnimation != nil) {
+                $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                    self.startAnimation = false
+                }
             }
             .accessibilityValue(dataPoint.getCellAccessibilityValue(specifier: chartData.infoView.touchSpecifier,
                                                                     formatter: chartData.infoView.touchFormatter))

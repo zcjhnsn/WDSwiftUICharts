@@ -67,11 +67,15 @@ public struct StackedBarChart<ChartData>: View where ChartData: StackedBarChartD
                         .scaleEffect(x: chartData.barStyle.barWidth, anchor: .center)
                         .animation(.default, value: chartData.dataSets)
                         .background(Color(.gray).opacity(0.000000001))
-                        .animateOnAppear(using: chartData.chartStyle.globalAnimation) {
-                            self.startAnimation = true
+                        .if(chartData.chartStyle.globalAnimation != nil) {
+                            $0.animateOnAppear(using: chartData.chartStyle.globalAnimation!) {
+                                self.startAnimation = true
+                            }
                         }
-                        .animateOnDisappear(using: chartData.chartStyle.globalAnimation) {
-                            self.startAnimation = false
+                        .if(chartData.chartStyle.globalAnimation != nil) {
+                            $0.animateOnDisappear(using: chartData.chartStyle.globalAnimation!) {
+                                self.startAnimation = false
+                            }
                         }
                         .accessibilityLabel(LocalizedStringKey(chartData.metadata.title))
                 }

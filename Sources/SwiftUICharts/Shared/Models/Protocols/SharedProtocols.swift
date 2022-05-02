@@ -288,7 +288,7 @@ public protocol CTChartStyle {
      Animation.linear(duration: 1)
      ```
      */
-    var globalAnimation: Animation { get set }
+    var globalAnimation: Animation? { get set }
 }
 
 

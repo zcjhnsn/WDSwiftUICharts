@@ -25,7 +25,7 @@ public struct PieChartStyle: CTPieChartStyle {
     public var infoBoxBorderColour: Color
     public var infoBoxBorderStyle: StrokeStyle
     
-    public var globalAnimation: Animation
+    public var globalAnimation: Animation?
     
     /// Model for controlling the overall aesthetic of the chart.
     /// - Parameters:
