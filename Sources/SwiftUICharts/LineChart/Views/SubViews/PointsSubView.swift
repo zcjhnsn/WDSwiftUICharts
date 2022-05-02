@@ -33,7 +33,9 @@ internal struct PointsSubView<DS>: View where DS: CTLineChartDataSet,
         self.isFilled = isFilled
     }
     
-    @State private var startAnimation: Bool = false
+    @State private var startAnimation: Bool {
+        return self.animation == nil
+    }
     
     internal var body: some View {
         
