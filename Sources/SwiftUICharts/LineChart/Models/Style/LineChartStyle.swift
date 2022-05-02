@@ -149,7 +149,7 @@ public struct LineChartStyle: CTLineChartStyle {
         baseline: Baseline = .minimumValue,
         topLine: Topline = .maximumValue,
         
-        globalAnimation: Animation = Animation.linear(duration: 1)
+        globalAnimation: Animation? = Animation.linear(duration: 1)
     ) {
         self.infoBoxPlacement = infoBoxPlacement
         self.infoBoxContentAlignment = infoBoxContentAlignment
